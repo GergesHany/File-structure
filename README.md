@@ -68,49 +68,49 @@ using namespace std;
 int main(){
 
     fstream file;
-    file.open(); // build in function in fstream class to open a file
+    file.open(); // built in function in fstream class to open a file
     // syntax: file.open(path, file name, extension, open mode)
 
-    file.close(); // build in function in fstream class to close a file
+    file.close(); // built in function in fstream class to close a file
     // syntax: file.close();
 
-    file.is_open(); // build in function in fstream class to check if a file is open or not
+    file.is_open(); // built in function in fstream class to check if a file is open or not
     // syntax: file.is_open();
 
-    file.eof(); // build in function in fstream class to check if the end of file is reached or not
+    file.eof(); // built in function in fstream class to check if the end of file is reached or not
     // syntax: file.eof();
 
-    file.tellg(); // build in function in fstream class to return the current position of the get pointer
+    file.tellg(); // built in function in fstream class to return the current position of the get pointer
     // syntax: file.tellg();
 
-    file.tellp(); // build in function in fstream class to return the current position of the put pointer
+    file.tellp(); // built in function in fstream class to return the current position of the put pointer
     // syntax: file.tellp();
 
-    file.seekg(); // build in function in fstream class to set the position of the get pointer
+    file.seekg(); // built in function in fstream class to set the position of the get pointer
     // syntax: file.seekg(position);
 
-    file.seekp(); // build in function in fstream class to set the position of the put pointer
+    file.seekp(); // built in function in fstream class to set the position of the put pointer
     // syntax: file.seekp(position);
 
-    file.put(); // build in function in fstream class to write a character to the file
+    file.put(); // built in function in fstream class to write a character to the file
     // syntax: file.put(character);
 
-    file.get(); // build in function in fstream class to read a character from the file
+    file.get(); // built in function in fstream class to read a character from the file
     // syntax: file.get();
 
-    file.write(); // build in function in fstream class to write a block of data to the file
+    file.write(); // built in function in fstream class to write a block of data to the file
     // syntax file.write((char*)&variable, sizeof(variable));
 
-    file.read(); // build in function in fstream class to read a block of data from the file
+    file.read(); // built in function in fstream class to read a block of data from the file
     // syntax file.read((char*)&variable, sizeof(variable));
 
-    file.flush(); // build in function in fstream class to flush the buffer
+    file.flush(); // built in function in fstream class to flush the buffer
     // syntax: file.flush();
 
-    file.clear(); // build in function in fstream class to clear the error flags
+    file.clear(); // built in function in fstream class to clear the error flags
     // syntax: file.clear();
 
-    file.sync(); // build in function in fstream class to synchronize the file with the disk
+    file.sync(); // built in function in fstream class to synchronize the file with the disk
     // syntax: file.sync();
 
     file.seekg(0, ios::beg); // set the position of the get pointer to the beginning of the file
