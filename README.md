@@ -129,6 +129,8 @@ int main(){
 
     file.seekp(0, ios::cur); // set the position of the put pointer to the current position of the put pointer
     // syntax: file.seekp(0, ios::cur);
+    
+    return 0;
 }  
 
 ```
