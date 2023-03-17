@@ -59,6 +59,12 @@ The I/O system of C++ contains a set of classes which define the file handling m
 ### some functions in fstream class
 
 ```cpp
+
+#include <bits/stdc++.h>
+#include <fstream>
+using namespace std;
+
+
 int main(){
 
     fstream file;
