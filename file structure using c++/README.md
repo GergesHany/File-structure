@@ -59,7 +59,6 @@ The I/O system of C++ contains a set of classes which define the file handling m
 ### some functions in fstream class
 
 ```cpp
-
 #include <bits/stdc++.h>
 #include <fstream>
 using namespace std;
@@ -67,72 +66,47 @@ using namespace std;
 
 int main(){
 
-    fstream file;
-    file.open(); // built in function in fstream class to open a file
-    // syntax: file.open(path, file name, extension, open mode)
+  fstream file;
+  file.open(); // built in function in fstream class to open a file
+  // syntax: file.open(path, file name, extension, open mode)
 
-    file.close(); // built in function in fstream class to close a file
-    // syntax: file.close();
+  file.close(); // built in function in fstream class to close a file
+  // syntax: file.close();
 
-    file.is_open(); // built in function in fstream class to check if a file is open or not
-    // syntax: file.is_open();
+  file.is_open(); // built in function in fstream class to check if a file is open or not
+  // syntax: file.is_open();
 
-    file.eof(); // built in function in fstream class to check if the end of file is reached or not
-    // syntax: file.eof();
+  file.eof(); // built in function in fstream class to check if the end of file is reached or not
+  // syntax: file.eof();
 
-    file.tellg(); // built in function in fstream class to return the current position of the get pointer
-    // syntax: file.tellg();
+  file.write(); // built in function in fstream class to write in a file
+  // syntax: file.write((char*)&s, sizeof(s));
 
-    file.tellp(); // built in function in fstream class to return the current position of the put pointer
-    // syntax: file.tellp();
+  file.read(); // built in function in fstream class to read from a file
+  // syntax: file.read((char*)&s, sizeof(s));
 
-    file.seekg(); // built in function in fstream class to set the position of the get pointer
-    // syntax: file.seekg(position);
+  file.put(); // built in function in fstream class to put a character in a file
+  // syntax: file.put(ch);
 
-    file.seekp(); // built in function in fstream class to set the position of the put pointer
-    // syntax: file.seekp(position);
+  file.get(); // built in function in fstream class to get a character from a file
+  // syntax: file.get(ch);
 
-    file.put(); // built in function in fstream class to write a character to the file
-    // syntax: file.put(character);
 
-    file.get(); // built in function in fstream class to read a character from the file
-    // syntax: file.get();
+  file.open(); // built in function in fstream class to open a file
+  // // syntax: file.open(path, file name, extension, open mode)
 
-    file.write(); // built in function in fstream class to write a block of data to the file
-    // syntax file.write((char*)&variable, sizeof(variable));
+  file.get(ch, 10); // built in function in fstream class to get a string from a file
+  // syntax: file.get(ch, size);
 
-    file.read(); // built in function in fstream class to read a block of data from the file
-    // syntax file.read((char*)&variable, sizeof(variable));
+  file.putline(); // built in function in fstream class to put a string in a file
+  // syntax: file.putline(ch);
 
-    file.flush(); // built in function in fstream class to flush the buffer
-    // syntax: file.flush();
+  file.getline(); // built in function in fstream class to get a string from a file
+  // syntax: file.getline(ch, size);
 
-    file.clear(); // built in function in fstream class to clear the error flags
-    // syntax: file.clear();
-
-    file.sync(); // built in function in fstream class to synchronize the file with the disk
-    // syntax: file.sync();
-
-    file.seekg(0, ios::beg); // set the position of the get pointer to the beginning of the file
-    // syntax: file.seekg(0, ios::beg);
-
-    file.seekg(0, ios::end); // set the position of the get pointer to the end of the file
-    // syntax: file.seekg(0, ios::end);
-
-    file.seekg(0, ios::cur); // set the position of the get pointer to the current position of the get pointer
-    // syntax: file.seekg(0, ios::cur); 
-    file.seekp(0, ios::beg); // set the position of the put pointer to the beginning of the file
-    // syntax: file.seekp(0, ios::beg);
-
-    file.seekp(0, ios::end); // set the position of the put pointer to the end of the file
-    // syntax: file.seekp(0, ios::end);
-
-    file.seekp(0, ios::cur); // set the position of the put pointer to the current position of the put pointer
-    // syntax: file.seekp(0, ios::cur);
     
-    return 0;
+  return 0;
 }  
-
 ```
 
 
