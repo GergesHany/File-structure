@@ -104,6 +104,16 @@ int main(){
   return 0;
 }  
 ```
+## [simple project using some information]()
+
+### The functions in the project is
+- Write student
+- Read student
+- Search student
+- Delete student
+- Update student
+
+
 
 
 
