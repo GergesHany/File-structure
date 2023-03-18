@@ -56,7 +56,7 @@ The I/O system of C++ contains a set of classes which define the file handling m
 
 <hr>
 
-### some functions in fstream class
+### Syntax for some functions in fstream class
 
 ```cpp
 #include <bits/stdc++.h>
