@@ -25,11 +25,11 @@ The I/O system of C++ contains a set of classes which define the file handling m
 <hr>
 
 ### file handling 
-##### in file handling include three files (fstream, iostream, ofstream)
+##### in file handling include three files (`fstream`, `iostream`, `ofstream`)
 
-- ####  ofstream is used to write information to files and create files if they do not exist already 
-- #### ifstream is used to read information from files 
-- #### fstream can be used to create files, write information to files, and read information from files
+- #### `ofstream` is used to write information to files and create files if they do not exist already 
+- #### `ifstream` is used to read information from files 
+- #### `fstream` can be used to create files, write information to files, and read information from files
 
 
 
