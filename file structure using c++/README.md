@@ -91,10 +91,6 @@ int main(){
   file.get(); // built in function in fstream class to get a character from a file
   // syntax: file.get(ch);
 
-
-  file.open(); // built in function in fstream class to open a file
-  // // syntax: file.open(path, file name, extension, open mode)
-
   file.get(ch, 10); // built in function in fstream class to get a string from a file
   // syntax: file.get(ch, size);
 
