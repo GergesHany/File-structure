@@ -104,6 +104,9 @@ int main(){
   return 0;
 }  
 ```
+
+<hr>
+
 ### [simple project using some information](https://github.com/GergesHany/File-structure/tree/main/file%20structure%20using%20c%2B%2B/student_project)
 
 ### The functions in the project is
@@ -124,6 +127,8 @@ class student{
 
 };
 ```
+
+<hr>
 
 ### Write student
 ```cpp
@@ -159,6 +164,8 @@ void write_student(){
 
 }
 ```
+
+<hr>
 
 ### Read student
 
@@ -196,7 +203,7 @@ void read_student(){
 }
 ```
 
-
+<hr>
 
 ### Search student
 
@@ -234,7 +241,7 @@ bool search_student(int id){
   return false; // return false to indicate that the student is not found
 }
 ```
-
+<hr>
 
 ### Delete student
 
@@ -287,6 +294,8 @@ void delete_student(int id){
 
 }
 ```
+
+<hr>
 
 ## Update student
 
@@ -347,9 +356,71 @@ void update_student(int id){
 }
 ```
 
+<hr>
+
+## seekg and seekp functions
+
+```cpp
+#include <bits/stdc++.h>
+#include <fstream>
+using namespace std;
 
 
+int main(){
 
+  fstream file;
+  file.open("Test.txt", ios::in);
+
+  // syntax of the seekg function
+  // file.seekg(number of characters, position);
+
+
+  file.seekg(0, ios::end); // go to the end of the file to get the size of the file 
+  // the size of the file is the number of characters in the file 
+
+  int size = file.tellg(); // get the size of the file
+  // the tellg function returns the current position in the file
+  // the current position is the number of characters from the beginning of the file
+
+
+  file.seekg(0, ios::beg); // go to the beginning of the file to read the file from the beginning
+  
+  // the seekg function takes two parameters
+  // the first parameter is the number of characters to go from the beginning of the file
+  // the second parameter is the position to start from
+  // the position can be ios::beg, ios::cur, ios::end
+  // ios::beg is the beginning of the file
+  // ios::cur is the current position in the file
+  // ios::end is the end of the file
+
+  file.seekg(5, ios::beg); // go to the 5th character from the beginning of the file
+
+
+  // syntax of the seekp function
+  // file.seekp(number of characters, position);
+  
+  file.seekp(0, ios::end); // go to the end of the file to write in the file
+  file << "Hello world"; // write in the file
+
+  file.seekp(0, ios::beg); // go to the beginning of the file to write in the file
+  file << "Hello world"; // write in the file
+
+  file.seekp(5, ios::beg); // go to the 5th character from the beginning of the file to write in the file
+  file << "Hello world"; // write in the file
+
+  file.seekp(5, ios::cur); // go to the 5th character from the current position to write in the file
+
+  file.seekp(-5, ios::cur); // go to the 5th character before the current position to write in the file
+
+  file.seekp(-5, ios::end); // go to the 5th character before the end of the file to write in the file
+
+  file.close();
+
+  return 0;
+}  
+```
+
+<hr>
 
 
 
