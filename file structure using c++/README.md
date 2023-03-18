@@ -107,6 +107,75 @@ int main(){
 
 <hr>
 
+
+### syntax to read the file
+
+```cpp
+#include <bits/stdc++.h>
+#include <fstream>
+using namespace std;
+
+// the class student
+class student{
+  public:
+    int age, id;
+    string name;
+};
+
+int main(){
+
+  fstream file;
+  file.open("Test.txt", ios::in);
+
+  // syntax to read the file
+  
+  // the variable to store the student
+  student s;
+
+  file >> s.name >> s.age >> s.id; // read the student from the file
+
+  cout << s.name << " " << s.age << " " << s.id << "\n"; // print the student
+
+  return 0;
+}  
+```
+
+<hr>
+
+### syntax to write the student in the file
+
+```cpp
+#include <bits/stdc++.h>
+#include <fstream>
+using namespace std;
+
+// the class student
+class student{
+  public:
+    int age, id;
+    string name;
+};
+
+int main(){
+
+  fstream file;
+  file.open("Test.txt", ios::in);
+
+  // syntax to write the student in the file
+
+  // the variable to store the student
+  student s = {20, 1, "Gerges"};
+  
+  file << s.name << " " << s.age << " " << s.id << "\n"; // write the student in the file
+
+
+  return 0;
+}  
+```
+
+<hr>
+
+
 ### [simple project using some information](https://github.com/GergesHany/File-structure/tree/main/file%20structure%20using%20c%2B%2B/student_project)
 
 ### The functions in the project is
