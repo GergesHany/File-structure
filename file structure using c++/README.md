@@ -252,7 +252,85 @@ int main(){
 <hr>
 
 
+## file flags
+```cpp
+#include <bits/stdc++.h>
+#include <fstream>
+using namespace std;
 
+int main(){
+
+  fstream file("Students.txt", ios::in | ios::out | ios::binary);
+
+  // file flags
+
+
+  // 1 - file.is_open() -> check if the file is open
+  // syntax: file.is_open()
+  // return: true if the file is open, false if the file is not open
+  if(file.is_open()){
+    cout << "The file is open" << "\n";
+  }else{
+    cout << "The file is not open" << "\n";
+  }
+
+  // 2 - file.eof() -> check if the file is at the end
+  // syntax: file.eof()
+  // return: true if the file is at the end, false if the file is not at the end
+
+
+  if(file.eof()){
+    cout << "The file is at the end" << "\n";
+  }else{
+    cout << "The file is not at the end" << "\n";
+  }
+  
+  // 3 - file.fail() -> check if the file is failed
+  // syntax: file.fail()
+  // return: true if the file is failed, false if the file is not failed
+  // the file is failed if the file is failed to read or write from the file or (the user enter a wrong data)
+
+
+  if(file.fail()){
+    cout << "The file is failed" << "\n";
+  }else{
+    cout << "The file is not failed" << "\n";
+  }
+
+
+  // 4 - file.bad() -> check if the file is bad
+  // syntax: file.bad()
+  // return: true if the file is bad, false if the file is not bad
+  // the file is bad if the file is failed to can read or write from the file
+
+  if(file.bad()){
+    cout << "The file is bad" << "\n";
+  }else{
+    cout << "The file is not bad" << "\n";
+  }
+
+
+  // 5 - file.good() -> check if the file is good
+  // syntax: file.good()
+  // return: true if the file is good, false if the file is not good
+  // the file is good if the file (is not failed and not bad and not at the end)
+
+  if(file.good()){
+    cout << "The file is good" << "\n";
+  }else{
+    cout << "The file is not good" << "\n";
+  }
+
+  // 6 - file.clear() -> clear the file flags and set the file to good
+  // syntax: file.clear()
+  // return: void
+
+  file.clear();
+
+  
+  return 0;
+}  
+```
 
 
 
