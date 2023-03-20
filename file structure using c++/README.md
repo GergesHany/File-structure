@@ -142,7 +142,7 @@ int main(){
 
 <hr>
 
-### syntax to write the student in the file
+### syntax to write in the file
 
 ```cpp
 #include <bits/stdc++.h>
