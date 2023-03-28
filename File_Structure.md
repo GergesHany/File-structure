@@ -120,7 +120,7 @@ When a C++ program terminates it automatically closes flushes all the streams,. 
 ### Reading and Writing in c++
 
 the following c++ program opens a file in a reading and writing mode.
-```
+```cpp
   
 #include <fstream>  
 #include  
@@ -169,7 +169,7 @@ The seek direction can be:
 
 Some examples of positioning the "get" file-position pointer are:
 
-```
+```cpp
 // position to the n_th byte of fileObject (assumes ios::beg)
 fileObject.seekg( n );
 
