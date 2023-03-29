@@ -25,6 +25,8 @@ It stores data coming from the **most frequently used applications** of the CPU.
 
 During normal operations, the CPU checks the processor cache **before** checking the main memory, making the processing time **faster**.
 
+<hr>
+
 ### 2- Secondary Storage
 Secondary storage devices are external in **nature** and **non-volatile** as compared to primary storage devices.
 
@@ -40,12 +42,16 @@ Secondary storage devices are formatted based on a filesystem format and data ar
 
 It also includes other pertinent information about the data, which is described in what is called the **metadata**.
 
+<hr>
+
 ### 3- Tertiary Storage
 This type of computer storage device is not as popular as the other two storage device types.
 
 Its main use is for storing data at a **very large-scale**. This includes optical jukeboxes and tape libraries.
 
 Tertiary storage devices **require a database** to organize the data that are stored in them, and the computer needs to go through the database to access those data.
+
+<hr>
 
 ### 4- Offline Storage
 
