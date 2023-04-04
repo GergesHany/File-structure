@@ -123,6 +123,7 @@ fileName.close()
 When a C++ program terminates it automatically closes flushes all the streams,. But it is always a good practice that a programmer should close all the opened files before program termination.
 <br>
 <hr>
+	
 ### Reading and Writing in c++
 
 the following c++ program opens a file in a reading and writing mode.
