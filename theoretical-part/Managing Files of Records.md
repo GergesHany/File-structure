@@ -82,8 +82,21 @@
 <hr>
 
 ### Rules 
+- #### `b` is the `total number of blocks` in the file.
+- #### If the record is at the `beginning` of the file, then at `least 1 block` is accessed
+- #### If the record is at the `end` of the file, then at most `b` blocks are accessed
+- #### On average b / 2
+- #### (searching) => Time to `find and read a record` in a pile file is => Time to `fetch` one record = (b/2) * effective block transfer time
+- #### (Reading all records) => Time for `exhaustive` reading of the file = seek time + rotational delay time + b * time to transfer one block
+- #### Time to `read the last block` = seek time + rotational delay time + block transfer time
+- #### Time to `insert a new record` = Time to read the last block + 2r
 
+> **Note**
+> (2r - block transfer time): `the time to wait for the disk` until it `rotates back to the original position`
+> (Block transfer time): the time to `transfer the new record`
 
+- #### Time to `update` a record for `fixed length` records = Time to fetch the record + 2r
+- #### Time to `update` a record for `variable length` records = Time to delete the record + time to insert the new one
 
 
 
