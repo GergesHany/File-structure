@@ -28,8 +28,8 @@
   - such as: Finding averages, min or max, or sum
   - They can be calculated **using double buffering** as we read though the file once.
 
-- ### To look up a record, given the value of one or more of its fields, we must search the whole file.
-- ### In order to search for a record, I have to search for it in the entire file
+- #### To look up a record, given the value of one or more of its fields, we must search the whole file.
+- #### In order to search for a record, I have to search for it in the entire file
 
 
 
