@@ -93,6 +93,9 @@
 
 > **Note**
 > (2r - block transfer time): `the time to wait for the disk` until it `rotates back to the original position`
+
+
+> **Note**
 > (Block transfer time): the time to `transfer the new record`
 
 - #### Time to `update` a record for `fixed length` records = Time to fetch the record + 2r
