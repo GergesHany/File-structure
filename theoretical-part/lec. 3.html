@@ -1,0 +1,415 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="lecture-3">lecture 3</h1>
+<h3 id="important-definitions">Important definitions</h3>
+
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>DASDs make it possible to access the data directly.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Serial devices allow only serial access.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>The information stored on a disk is stored on the surface of one or more platters.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Each platter has 2 surfaces and is broken into thousands of tracks.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>All the information is stored in successive tracks on the surface of the disk. Starting from zero at the outer side of the platter, the number of tracks goes on increasing to the inner side.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Track starts from zero at the outer side of the platter, the number of tracks goes on increasing to the inner side.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Each track is often divided into a number of sectors which is the smallest addressable portion of a disk.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Sectors are often grouped together to form clusters.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>A cluster is the smallest amount of disk space, is also called allocation unit, a fixed number of contiguous sectors. (If there is interleaving these sectors are not physically contiguous)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Once a cluster has been found on a disk, all sectors in that cluster can be accessed without requiring an additional seek (seeking only once).</td>
+</tr>
+<tr>
+<td>11</td>
+<td>The size of each cluster is a multiple of the sector size.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>The tracks that are directly above and below one another form a cylinder.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>When a read statement calls for a particular byte from a disk file, the computer’s operating system finds the correct platter, track and sector, reads the entire sector into a special area in memory called a buffer, and then finds the requested byte within that buffer.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Disk has a number of platters and read/write heads, each read/write head has a separate arm.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>All the information on a single cylinder can be accessed without moving the arm that holds the read/write heads.</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Moving this arm is called seeking, The arm’s movement is usually the slowest part of reading information from a disk.</td>
+</tr>
+<tr>
+<td>17</td>
+<td>logical organization of sectors on a track is that sectors are adjacent, fixed-sized segments of a track.</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Physically this organization is not optimal.</td>
+</tr>
+<tr>
+<td>19</td>
+<td>If the sectors were physically adjacent, we would miss the start of the next sector while processing the info just read in.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>A map of sectors is called the File Allocation Table (FAT).</td>
+</tr>
+<tr>
+<td>21</td>
+<td>The FAT containing for each cluster in the file.</td>
+</tr>
+<tr>
+<td>22</td>
+<td>The file manager is the part of the operating system responsible for managing files.</td>
+</tr>
+<tr>
+<td>23</td>
+<td>The FAT is maintained by the file manager.</td>
+</tr>
+<tr>
+<td>24</td>
+<td>All file systems are determined by the number of sectors that the cluster contains.</td>
+</tr>
+<tr>
+<td>25</td>
+<td>The use of clusters leads to internal fragmentation.</td>
+</tr>
+<tr>
+<td>26</td>
+<td>If the file size is not a multiple of the cluster size, then the last cluster of the file will be partially used.</td>
+</tr>
+<tr>
+<td>27</td>
+<td>An extent is a group of contiguous clusters.</td>
+</tr>
+<tr>
+<td>28</td>
+<td>If the file is stored in a single extent the seeking is done o</td>
+</tr>
+<tr>
+<td>29.</td>
+<td>If the file is stored in a single extent the seeking is done only once (minimum of seeking time).</td>
+</tr>
+<tr>
+<td>30.</td>
+<td>If one extent is not enough, then divide the file into more extents.</td>
+</tr>
+<tr>
+<td>31.</td>
+<td>Use large cluster size when disks contain large files likely to be processed sequentially.</td>
+</tr>
+<tr>
+<td>32.</td>
+<td>Use small cluster size When disks contain small files and/or files likely to be accessed randomly.</td>
+</tr>
+<tr>
+<td>33.</td>
+<td>If the records are smaller than the sector size, then if store one record per sector, then there is one access and internal fragmentation (Loss of Space).</td>
+</tr>
+<tr>
+<td>34.</td>
+<td>If the records are smaller than the sector size, then if one record may span two sectors, then there is no internal fragmentation and access more than once.</td>
+</tr>
+<tr>
+<td>35.</td>
+<td>Rather than being divided into sectors, the disk tracks may be divided into blocks.</td>
+</tr>
+<tr>
+<td>36.</td>
+<td>Blocks can be either fixed or variable in length, depending on the requirements of the file designer and the capabilities of the operating system.</td>
+</tr>
+<tr>
+<td>37.</td>
+<td>Blocks don’t have the internal fragmentation problem and no record spanning two blocks.</td>
+</tr>
+<tr>
+<td>38.</td>
+<td>blocking factor indicates the number of records per block.</td>
+</tr>
+<tr>
+<td>39.</td>
+<td>Count subblock contains the number of bytes in a block.</td>
+</tr>
+<tr>
+<td>40.</td>
+<td>Key subblock contains the key for the last record in the data subblock.</td>
+</tr>
+<tr>
+<td>41.</td>
+<td>Data subblock contains the records in this block.</td>
+</tr>
+<tr>
+<td>42.</td>
+<td>Whether using a block or a sector organization, some amount of space on the disk is taken up by non-data overhead.</td>
+</tr>
+<tr>
+<td>43.</td>
+<td>Blocks involves subblock + interblock gaps.</td>
+</tr>
+<tr>
+<td>44.</td>
+<td>The relative amount of non-data space necessary for a block scheme is higher than for a sector-scheme.</td>
+</tr>
+<tr>
+<td>45.</td>
+<td>Seek Time is the time required to move the access arm to the correct cylinder.</td>
+</tr>
+<tr>
+<td>46.</td>
+<td>Rotational Delay is the time it takes for the disk to rotate.</td>
+</tr>
+<tr>
+<td>47.</td>
+<td>Transfer time is the time it takes to transfer data.</td>
+</tr>
+</tbody>
+</table><p><br><br></p>
+<hr>
+<br><br>
+<h3 id="important-rules">Important Rules</h3>
+
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Equation</th>
+<th>Mathmatical Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One platter</td>
+<td>Platter Capacity = track capacity * number of tracks per surface * 2</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>P</mi><mi>l</mi><mi>a</mi><mi>t</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>C</mi><mi>a</mi><mi>p</mi><mi>a</mi><mi>c</mi><mi>i</mi><mi>t</mi><mi>y</mi><mo>=</mo><mi>T</mi><mi>C</mi><mo>×</mo><mi>T</mi><mi>P</mi><mi>S</mi><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">Platter Capacity = TC \times TPS \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.88888em; vertical-align: -0.19444em;"></span><span class="mord mathnormal" style="margin-right: 0.01968em;">Pl</span><span class="mord mathnormal">a</span><span class="mord mathnormal">tt</span><span class="mord mathnormal" style="margin-right: 0.02778em;">er</span><span class="mord mathnormal" style="margin-right: 0.07153em;">C</span><span class="mord mathnormal">a</span><span class="mord mathnormal">p</span><span class="mord mathnormal">a</span><span class="mord mathnormal">c</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right: 0.03588em;">y</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal" style="margin-right: 0.07153em;">TC</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">TPS</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.64444em; vertical-align: 0em;"></span><span class="mord">2</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Number of surfaces, Number of tracks per cylinder, Number of read/write heads, Number of arms</td>
+<td>Number of surfaces = number of tracks per cylinder = number of read/write heads in this disk = number of arms in this disk</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>N</mi><mi>S</mi><mo>=</mo><mi>N</mi><mi>T</mi><mi>P</mi><mi>C</mi><mo>=</mo><mi>N</mi><mi>H</mi><mi>D</mi><mo>=</mo><mi>N</mi><mi>A</mi></mrow><annotation encoding="application/x-tex">NS = NTPC = NHD = NA</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">NS</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.07153em;">NTPC</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.10903em;">N</span><span class="mord mathnormal" style="margin-right: 0.02778em;">HD</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.10903em;">N</span><span class="mord mathnormal">A</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Number of Cylinders per disk</td>
+<td>Number of Cylinders per disk = number of tracks per surface</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>N</mi><mi>C</mi><mi>D</mi><mo>=</mo><mi>T</mi><mi>P</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">NCD = TPS</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.07153em;">NC</span><span class="mord mathnormal" style="margin-right: 0.02778em;">D</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">TPS</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Track Capacity</td>
+<td>Track Capacity = number of sectors per track * bytes per sector</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>T</mi><mi>C</mi><mo>=</mo><mi>N</mi><mi>S</mi><mi>T</mi><mo>×</mo><mi>B</mi><mi>P</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">TC = NST \times BPS</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.07153em;">TC</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal" style="margin-right: 0.13889em;">NST</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">BPS</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Cylinder Capacity</td>
+<td>Cylinder Capacity = number of tracks per cylinder * track capacity</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>C</mi><mi>C</mi><mo>=</mo><mi>N</mi><mi>T</mi><mi>P</mi><mi>C</mi><mo>×</mo><mi>T</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">CC = NTPC \times TC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.07153em;">CC</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal" style="margin-right: 0.07153em;">NTPC</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.07153em;">TC</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Surface Capacity</td>
+<td>Surface Capacity = track capacity * number of tracks per surface</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>S</mi><mi>C</mi><mo>=</mo><mi>T</mi><mi>C</mi><mo>×</mo><mi>T</mi><mi>P</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">SC = TC \times TPS</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.07153em;">SC</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal" style="margin-right: 0.07153em;">TC</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">TPS</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Drive Capacity</td>
+<td>Drive Capacity = number of cylinders per disk * cylinder capacity</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>D</mi><mi>C</mi><mo>=</mo><mi>N</mi><mi>C</mi><mi>D</mi><mo>×</mo><mi>C</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">DC = NCD \times CC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.02778em;">D</span><span class="mord mathnormal" style="margin-right: 0.07153em;">C</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal" style="margin-right: 0.07153em;">NC</span><span class="mord mathnormal" style="margin-right: 0.02778em;">D</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.07153em;">CC</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Number of sectors per track</td>
+<td>Number of sectors per track = track capacity / bytes per sector</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>N</mi><mi>S</mi><mi>T</mi><mo>=</mo><mi>T</mi><mi>C</mi><mi mathvariant="normal">/</mi><mi>B</mi><mi>P</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">NST = TC/BPS</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.13889em;">NST</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.07153em;">TC</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right: 0.05764em;">BPS</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Number of sectors per cylinder</td>
+<td>Number of sectors per cylinder = number of sectors per track * number of tracks per cylinder</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>N</mi><mi>S</mi><mi>C</mi><mo>=</mo><mi>N</mi><mi>S</mi><mi>T</mi><mo>×</mo><mi>N</mi><mi>T</mi><mi>P</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">NSC = NST \times NTPC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.07153em;">NSC</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal" style="margin-right: 0.13889em;">NST</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.07153em;">NTPC</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Number of sectors per surface</td>
+<td>Number of sectors per surface = number of sectors per track * number of tracks per surface</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>N</mi><mi>S</mi><mi>S</mi><mo>=</mo><mi>N</mi><mi>S</mi><mi>T</mi><mo>×</mo><mi>T</mi><mi>P</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">NSS = NST \times TPS</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">NSS</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal" style="margin-right: 0.13889em;">NST</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">TPS</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Number of sectors per platter</td>
+<td>Number of sectors per platter = number of sectors per surface * 2</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>N</mi><mi>S</mi><mi>P</mi><mo>=</mo><mi>N</mi><mi>S</mi><mi>S</mi><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">NSP = NSS \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.13889em;">NSP</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">NSS</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.64444em; vertical-align: 0em;"></span><span class="mord">2</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Number of sectors per disk</td>
+<td>Number of sectors per disk = number of sectors per track * number of tracks per surface * number of surfaces</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>N</mi><mi>S</mi><mi>D</mi><mo>=</mo><mi>N</mi><mi>S</mi><mi>T</mi><mo>×</mo><mi>T</mi><mi>P</mi><mi>S</mi><mo>×</mo><mi>N</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">NSD = NST \times TPS \times NS</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">NS</span><span class="mord mathnormal" style="margin-right: 0.02778em;">D</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal" style="margin-right: 0.13889em;">NST</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">TPS</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">NS</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Number of tracks per platter</td>
+<td>Number of tracks per platter = number of tracks per surface * 2</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>N</mi><mi>T</mi><mi>P</mi><mo>=</mo><mi>T</mi><mi>P</mi><mi>S</mi><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">NTP = TPS \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.13889em;">NTP</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">TPS</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.64444em; vertical-align: 0em;"></span><span class="mord">2</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Number of tracks per disk</td>
+<td>Number of tracks per disk = number of tracks per surface * number per surfaces</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>N</mi><mi>T</mi><mi>D</mi><mo>=</mo><mi>T</mi><mi>P</mi><mi>S</mi><mo>×</mo><mi>N</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">NTD = TPS \times NS</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.13889em;">NT</span><span class="mord mathnormal" style="margin-right: 0.02778em;">D</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">TPS</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">NS</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Number of records in sector</td>
+<td>Number of records in sector = bytes of sector / bytes of record</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>N</mi><mi>R</mi><mi>S</mi><mo>=</mo><mi>B</mi><mi>P</mi><mi>S</mi><mi mathvariant="normal">/</mi><mi>B</mi><mi>P</mi><mi>R</mi></mrow><annotation encoding="application/x-tex">NRS = BPS / BPR</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">NRS</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">BPS</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right: 0.00773em;">BPR</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Number of records per cylinder</td>
+<td>Number of records per cylinder = number of sectors per cylinder * number of records per sector</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>N</mi><mi>R</mi><mi>C</mi><mo>=</mo><mi>N</mi><mi>S</mi><mi>C</mi><mo>×</mo><mi>N</mi><mi>R</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">NRC = NSC \times NRS</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.07153em;">NRC</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal" style="margin-right: 0.07153em;">NSC</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">NRS</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Size of data subblock</td>
+<td>Size of data subblock = blocking factor * record size</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>S</mi><mi>D</mi><mi>S</mi><mo>=</mo><mi>B</mi><mi>F</mi><mo>×</mo><mi>R</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">SDS = BF \times RS</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">S</span><span class="mord mathnormal" style="margin-right: 0.02778em;">D</span><span class="mord mathnormal" style="margin-right: 0.05764em;">S</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal" style="margin-right: 0.13889em;">BF</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">RS</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Number of bytes in each block</td>
+<td>Number of bytes in each block = size of data subblock + size of non-data overhead</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>N</mi><mi>B</mi><mi>B</mi><mo>=</mo><mi>S</mi><mi>D</mi><mi>S</mi><mo>+</mo><mi>S</mi><mi>N</mi><mi>D</mi><mi>O</mi></mrow><annotation encoding="application/x-tex">NBB = SDS + SNDO</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.05017em;">NBB</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal" style="margin-right: 0.05764em;">S</span><span class="mord mathnormal" style="margin-right: 0.02778em;">D</span><span class="mord mathnormal" style="margin-right: 0.05764em;">S</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.10903em;">SN</span><span class="mord mathnormal" style="margin-right: 0.02778em;">D</span><span class="mord mathnormal" style="margin-right: 0.02778em;">O</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Transfer time</td>
+<td>Transfer time = (Number of Bytes Transferred/ Number of Bytes on a Track) * Rotation Time</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>T</mi><mi>T</mi><mo>=</mo><mo stretchy="false">(</mo><mi>N</mi><mi>B</mi><mi>T</mi><mi mathvariant="normal">/</mi><mi>N</mi><mi>B</mi><mi>T</mi><mo stretchy="false">)</mo><mo>×</mo><mi>R</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">TT = (NBT/NBT) \times RT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.13889em;">TT</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right: 0.13889em;">NBT</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right: 0.13889em;">NBT</span><span class="mclose">)</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.13889em;">RT</span></span></span></span></span></span></td>
+</tr>
+<tr>
+<td>Average Total time</td>
+<td>Average Total time = average seek + average rotational delay + transfer time</td>
+<td><span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>A</mi><mi>T</mi><mi>T</mi><mo>=</mo><mi>A</mi><mi>S</mi><mo>+</mo><mi>A</mi><mi>R</mi><mi>D</mi><mo>+</mo><mi>T</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">ATT = AS + ARD + TT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right: 0.13889em;">TT</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right: 0.05764em;">S</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right: 0.00773em;">R</span><span class="mord mathnormal" style="margin-right: 0.02778em;">D</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathnormal" style="margin-right: 0.13889em;">TT</span></span></span></span></span></span></td>
+</tr>
+</tbody>
+</table><p><strong>NOTE :</strong> There are some conflicts in acronyms such as (NBT). So, بصمج وانت ساكت</p>
+<p><br><br></p>
+<h3 id="here-is-the-above-acronyms-optional--عشان-لو-حبيت-تذاكرهم-بالاختصار">here is the above acronyms (optional , عشان لو حبيت تذاكرهم بالاختصار):</h3>
+
+<table>
+<thead>
+<tr>
+<th>acronym</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PC</td>
+<td>Platter Capacity</td>
+</tr>
+<tr>
+<td>SC</td>
+<td>Surface Capacity</td>
+</tr>
+<tr>
+<td>CC</td>
+<td>Cylinder Capacity</td>
+</tr>
+<tr>
+<td>DC</td>
+<td>Drive Capacity</td>
+</tr>
+<tr>
+<td>TC</td>
+<td>Track Capacity</td>
+</tr>
+<tr>
+<td>NST</td>
+<td>Number of Sectors per Track</td>
+</tr>
+<tr>
+<td>NSC</td>
+<td>Number of Sectors per Cylinder</td>
+</tr>
+<tr>
+<td>NSS</td>
+<td>Number of Sectors per Surface</td>
+</tr>
+<tr>
+<td>NSP</td>
+<td>Number of Sectors per Platter</td>
+</tr>
+<tr>
+<td>NSD</td>
+<td>Number of Sectors per Disk</td>
+</tr>
+<tr>
+<td>NTP</td>
+<td>Number of Tracks per Platter</td>
+</tr>
+<tr>
+<td>NTD</td>
+<td>Number of Tracks per Disk</td>
+</tr>
+<tr>
+<td>NRS</td>
+<td>Number of Records in Sector</td>
+</tr>
+<tr>
+<td>NRC</td>
+<td>Number of Records per Cylinder</td>
+</tr>
+<tr>
+<td>SDS</td>
+<td>Size of Data Subblock</td>
+</tr>
+<tr>
+<td>NBB</td>
+<td>Number of Bytes in Each Block</td>
+</tr>
+<tr>
+<td>TT</td>
+<td>Transfer Time</td>
+</tr>
+<tr>
+<td>ATT</td>
+<td>Average Total Time</td>
+</tr>
+</tbody>
+</table></div>
+</body>
+
+</html>
