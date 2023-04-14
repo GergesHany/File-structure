@@ -62,11 +62,4 @@ Offline storage devices are remotely located and accessed as **per need** only.
 This storage device also needs **human intervention** to be read properly by the main computer system.
 <br> <br> <br>
 
-## c++  Files and Streams
-**ofstream** :  This data type represents the **output** file stream and is used to create files and to write information to files.
 
-**ifstream** : This data type represents the **input** file stream and is used to read information from files.
-
-**fstream** : This data type represents the **file stream generally**, and has the capabilities of both ofstream and ifstream.
-
-**Note** :  To perform file processing in C++, header files <iostream> and <fstream> must be included in your C++ source file.
