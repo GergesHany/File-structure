@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file.html</title>
+  <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #d9e9f9;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        color: #0f4c81;
+        font-size: 40px;
+      }
+      table {
+        margin: 50px auto;
+        border-collapse: collapse;
+        width: 200%;
+        max-width: 1000px;
+        background-color: #f2f7fd;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 12px;
+        font-size: 18px;
+      }
+      th {
+        background-color: #0f4c81;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #d9e9f9;
+      }
+      tr:hover {
+        background-color: #a9c9e9;
+      }
+  </style>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="lecture-4">lecture 4</h2>
+<h3 id="important-definitions">Important definitions</h3>
+
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Tapes provide no direct access facility, but very rapid sequential access to data.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tapes are easy to store and transport and cheaper than disk.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Taped was used to store application data.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Tapes are primarily used as archival storage. Data in tapes are copied to disk.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Tapes are commonly used as backup devices.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Data on tapes is no need for addresses to identify the locations of data on a tape.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>On a tape, the logical position of a byte within a file corresponds directly to its physical position relative to the start of the file.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>The surface of a typical tape can be seen as a set of parallel tracks each of which is a sequence of bits.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>If there are nine tracks, the nine bits that are at corresponding positions in the nine tracks are taken to constitute one byte + a parity bit.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>One Byte = a one-bit-wide slice of tape called a frame.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Frames are organized into data blocks + interblock gaps.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>The parity bit is not a part of the data, but it is used to check the validity of the data.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>A parity bit, or check bit, is a bit added to a string of binary code to ensure that the total number of 1-bits in the string is even or odd.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Parity bits are used as the simplest form of error detection code.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>There are two types of parity bits: even parity bit and odd parity bit In the case of even parity:<br>if the number of bits is odd -&gt; count the number of ones<br>if the number of bits is even -&gt; count the number of zeros</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Bloking factor is number of records stored in a physical block.</td>
+</tr>
+<tr>
+<td>18</td>
+<td>If we increase the blocking factor, we can decrease the number of blocks which decreases the number of gaps.</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Effective record density is a general measure of the effect of choosing different block sizes, amount of data that can be stored per inch of tape.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Space utilization is sensitive to the relative sizes of data block and interblock gaps.</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Effective recording density: Recording density after taking into account the space used by interblock gaps.</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Nominal recording density: Recording density on a tape without taking into account the effects of gaps.</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Effective transmission rate: Transmission rate after taking into account the time used to locate and transmit the block of data in which a desired record occurs.</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Nominal transmission rate: Transmission rate of a tape without taking into account the effects of such extra operations such interblock gap traversal time.</td>
+</tr>
+</tbody>
+</table><p><br> </p><hr><p></p>
+<h3 id="important-rules">Important Rules</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>b</td>
+<td>physical length of data block = block size (bytes per block) / tape density (bytes of inch)</td>
+</tr>
+<tr>
+<td>g</td>
+<td>length of an interblock gap</td>
+</tr>
+<tr>
+<td>number of inches required to store a block</td>
+<td>b + g</td>
+</tr>
+<tr>
+<td>n</td>
+<td>number of data block</td>
+</tr>
+<tr>
+<td>s</td>
+<td>space requirement for storing the file</td>
+</tr>
+<tr>
+<td>Effective record density</td>
+<td>number of bytes per block/number of inches required to store a block</td>
+</tr>
+<tr>
+<td>Normal Data Transmission Rate</td>
+<td>Tape Density (bpi) * Tape Speed (ips)</td>
+</tr>
+<tr>
+<td>Effective Transmission Rate</td>
+<td>(Effective Recording Density) * (Tape Speed)</td>
+</tr>
+</tbody>
+</table><p><br></p><hr><p></p>
+<h3 id="disk-vs-tape">Disk vs Tape</h3>
+
+<table>
+<thead>
+<tr>
+<th>Points of Comparison</th>
+<th>Disk</th>
+<th>Tape</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Used for Secondary Storage</td>
+<td>Yes, commonly used for secondary storage</td>
+<td>Yes, commonly used for secondary storage</td>
+</tr>
+<tr>
+<td>Random Access</td>
+<td>Yes, can access data randomly and quickly</td>
+<td>No, can only access data sequentially</td>
+</tr>
+<tr>
+<td>Popularity for Secondary Storage</td>
+<td>Highly popular and has taken over much of <strong>secondary</strong> storage due to decreased cost of disk and memory storage</td>
+<td>Not as popular as disks due to slower access time and higher cost per GB compared to disks (used as <strong>Tertiary</strong> storage)</td>
+</tr>
+</tbody>
+</table></div>
+</body>
+
+</html>
