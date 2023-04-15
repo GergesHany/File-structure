@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>types of storage.md</title>
+  <style>
+		/* Set the default font family and size */
+		body {
+		font-family: Arial, sans-serif;
+		font-size: 18px;
+		}
+
+		/* Style the page title */
+		h1 {
+		font-size: 36px;
+		font-weight: bold;
+		color: #006699; /* blue */
+		}
+
+		/* Style the section headings */
+		h2 {
+		font-size: 24px;
+		font-weight: bold;
+		color: #006699; /* darker blue */
+		}
+
+		h3 {
+		font-size: 18px;
+		font-weight: bold;
+		color: #006699; /* darker blue */
+		}
+
+		/* Style the paragraphs */
+		p {
+		margin: 1em 0;
+		line-height: 1.5;
+		}
+
+		/* Style the block code */
+		pre {
+		padding: 1em;
+		background-color: #f0f8ff; /* baby blue */
+		color: #333;
+		overflow-x: auto;
+		font-size: 14px;
+		line-height: 1.5;
+		border-radius: 5px;
+		}
+
+		/* Style the code syntax highlighting */
+		pre code {
+		font-family: Consolas, monospace;
+		font-size: 14px;
+		}
+
+		/* Style the links */
+		a {
+		color: #006699; /* darker blue */
+		}
+
+		a:hover {
+		text-decoration: underline;
+		}
+
+		/* Add a background color to the page */
+		body {
+		background-color: #fff;
+		}
+
+		/* Style the header */
+		header {
+		background-color: #006699; /* darker blue */
+		color: #fff; /* white */
+		padding: 20px;
+		}
+
+		/* Style the names */
+		header h1 {
+		font-size: 36px;
+		margin: 0;
+		color: #fff; /* white */
+		}
+
+		header h2 {
+		font-size: 24px;
+		margin: 0;
+		color: #f0f8ff; /* baby blue */
+		}
+
+		/* Align the names */
+		.names {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		}
+
+		.names h1,
+		.names h2 {
+		margin: 0 10px;
+		}
+
+		/* Add a hover effect to the names */
+		.names h1:hover,
+		.names h2:hover {
+		cursor: pointer;
+		text-decoration: underline;
+		}
+
+
+  </style>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+  
+
+<body class="stackedit">
+  <div class="stackedit__html"><p><br><br></p>
+<h2 id="introduction">introduction</h2>
+<p>introduction<br>
+A file structure allow applications to <strong>read , write</strong> and <strong>modify</strong> data.  It might also support <strong>finding</strong> the data that matches some search criteria or <strong>reading through</strong> the data in some particular order<br>
+<br> <br> <br></p>
+<h2 id="data-storage">DATA STORAGE</h2>
+<h3 id="primary-storage">1- Primary Storage</h3>
+<p>Primary storage refers to the computer’s memory, which connects <strong>directly</strong> to the computer’s CPU. which known as random access memory (RAM) which is a <strong>volatile</strong> form of storage.</p>
+<p><strong>Volatile</strong> storage means that you totally <strong>lose data</strong> when you switch the system off.</p>
+<p>Aside from the RAM, two other <strong>primary</strong> storage areas can be found; these are on the CPU itself; the Processor <strong>registers</strong> and the Processor <strong>cache</strong>.</p>
+<p><u>The Processor register</u> is some form of small storage which <strong>resides</strong> on the CPU and can contain data which can be accessed <strong>quickly</strong>.<br>
+<u></u><br>
+The processor registers are measured by the <strong>amount of data</strong> the can hold, that is either, 8 bit, 32 bit or 64 bit.</p>
+<p><u>Processor cache</u> on the other hand is used by the CPU for <strong>reducing</strong> the time it takes to access the main memory.</p>
+<p>It stores data coming from the <strong>most frequently used applications</strong> of the CPU.</p>
+<p>During normal operations, the CPU checks the processor cache <strong>before</strong> checking the main memory, making the processing time <strong>faster</strong>.</p>
+<hr>
+<h3 id="secondary-storage">2- Secondary Storage</h3>
+<p>Secondary storage devices are external in <strong>nature</strong> and <strong>non-volatile</strong> as compared to primary storage devices.</p>
+<p>Secondary storage devices <strong>do not lose data</strong> even when they are <strong>turned off</strong>. Hence, they are the ideal back-up and data storage devices.</p>
+<p>Examples of secondary storage devices include; Hard disk, CD and DVD , flash memory , floppy disks , magnetic tape , RAM disks , also called SSDs , ZIP drives , and punch cards.</p>
+<p>Since secondary storage devices are <strong>not attached</strong> to the computer’s CPU, it takes a <strong>longer time</strong> for the CPU to access them.</p>
+<p>Secondary storage devices need to be <strong>formatted</strong> before they can store data.</p>
+<p>Secondary storage devices are formatted based on a filesystem format and data are organized into files and directories.</p>
+<p>It also includes other pertinent information about the data, which is described in what is called the <strong>metadata</strong>.</p>
+<hr>
+<h3 id="tertiary-storage">3- Tertiary Storage</h3>
+<p>This type of computer storage device is not as popular as the other two storage device types.</p>
+<p>Its main use is for storing data at a <strong>very large-scale</strong>. This includes optical jukeboxes and tape libraries.</p>
+<p>Tertiary storage devices <strong>require a database</strong> to organize the data that are stored in them, and the computer needs to go through the database to access those data.</p>
+<hr>
+<h3 id="offline-storage">4- Offline Storage</h3>
+<p>It is <strong>not directly</strong> connected to the computer and is used as a transfer <strong>medium only</strong>.</p>
+<p>Offline storage devices are remotely located and accessed as <strong>per need</strong> only.</p>
+<p>This storage device also needs <strong>human intervention</strong> to be read properly by the main computer system.<br>
+<br> <br> <br></p>
+<h2 id="c--files-and-streams">c++  Files and Streams</h2>
+<p><strong>ofstream</strong> :  This data type represents the <strong>output</strong> file stream and is used to create files and to write information to files.</p>
+<p><strong>ifstream</strong> : This data type represents the <strong>input</strong> file stream and is used to read information from files.</p>
+<p><strong>fstream</strong> : This data type represents the <strong>file stream generally</strong>, and has the capabilities of both ofstream and ifstream.</p>
+<p><strong>Note</strong> :  To perform file processing in C++, header files  and  must be included in your C++ source file.</p>
+<hr>
+<h3 id="opening-a-file-in-c">opening a file in c++</h3>
+<pre><code>                     void open(const char *filename, ios::openmode mode);
+</code></pre>
+<p><strong>const char *filename</strong> : specifies the name and location of the file to be opened.</p>
+<p><strong>ios::openmode mode</strong>: defines the mode in which the file should be opened.<br>
+<br></p>
+<table>  
+		<tbody><tr>  
+		<th>Mode</th>  
+		<th>Description</th>  
+		</tr>  
+		<tr>  
+		<td>ios::app</td>  
+		<td>Append mode. All output to that file to be appended to the end.</td>  
+		</tr>  
+		<tr>  
+		<td>ios::ate</td>  
+		<td>Open a file for output and move the read/write control to the end of the file.</td>  
+		</tr>  
+		<tr>  
+		<td>ios::in</td>  
+		<td>Open a file for reading. </td>  
+		</tr> 
+		<tr>  
+		<td>ios::out</td>  
+		<td>Open a file for writing.</td>  
+		</tr> 
+		<tr>  
+		<td>ios::trunc</td>  
+		<td>If the file already exists, its contents will be truncated before opening the file.</td>  
+		</tr> 
+</tbody></table>
+<p><strong>Note</strong> :  You can combine two or more of these values by OR operator.</p>
+<pre><code>outfile.open("file.dat", ios::out | ios::in );
+</code></pre>
+<br>
+<h3 id="closing-a-file-in-c">closing a file in c++</h3>
+<pre><code>fileName.close()
+</code></pre>
+<p>When a C++ program terminates it automatically closes flushes all the streams,. But it is always a good practice that a programmer should close all the opened files before program termination.<br>
+<br></p>
+<hr>
+<h3 id="reading-and-writing-in-c">Reading and Writing in c++</h3>
+<p>the following c++ program opens a file in a reading and writing mode.</p>
+<pre class=" language-cpp"><code class="prism  language-cpp">  
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;fstream&gt;</span>  </span>
+<span class="token macro property">#<span class="token directive keyword">include</span>  </span>
+<span class="token operator">&lt;</span>iostream<span class="token operator">&gt;</span>  
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>  
+
+<span class="token keyword">int</span> <span class="token function">main</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  
+	<span class="token keyword">char</span> name<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  
+	<span class="token keyword">int</span> age<span class="token punctuation">;</span>  
+	
+	<span class="token comment">// open a file in write mode.  </span>
+	ofstream outfile<span class="token punctuation">;</span>  
+	outfile<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"afile.txt"</span><span class="token punctuation">,</span> ios<span class="token operator">::</span>app<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Writing to the file"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	cout<span class="token operator">&lt;&lt;</span><span class="token string">"Enter your name: "</span><span class="token punctuation">;</span>
+	cin<span class="token operator">-</span><span class="token function">getline</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+	
+	<span class="token comment">// write name into the file.</span>
+	outfile <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> name <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>  
+	
+	cout<span class="token operator">&lt;&lt;</span><span class="token string">"Enter your age: "</span><span class="token punctuation">;</span>
+	cin <span class="token operator">&gt;&gt;</span> age<span class="token punctuation">;</span> 
+	 
+	<span class="token comment">// again write age into the file.</span>
+	outfile <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> age <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>  
+	
+	<span class="token comment">// close the opened file.</span>
+	outfile<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Both <strong>istream</strong> and <strong>ostream</strong> provide member functions for repositioning the file-position pointer. These member functions are <strong>seekg</strong> for istream and <strong>seekp</strong> for ostream.</p>
+<ul>
+<li>The first argument to seekg and seekp normally is a long integer.</li>
+<li>The second argument can be specified to indicate the seek direction.</li>
+</ul>
+<p>The seek direction can be:</p>
+<ul>
+<li><strong>ios::beg</strong> (the default) for positioning relative to the beginning of a stream.</li>
+<li><strong>ios::cur</strong> for positioning relative to the current position in a stream.</li>
+<li><strong>ios::end</strong> for positioning relative to the end of a stream.</li>
+</ul>
+<p>Some examples of positioning the “get” file-position pointer are:</p>
+<pre class=" language-cpp"><code class="prism  language-cpp"><span class="token comment">// position to the n_th byte of fileObject (assumes ios::beg)</span>
+fileObject<span class="token punctuation">.</span><span class="token function">seekg</span><span class="token punctuation">(</span> n <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// position n bytes forward in fileObject  </span>
+fileObject<span class="token punctuation">.</span><span class="token function">seekg</span><span class="token punctuation">(</span> n<span class="token punctuation">,</span> ios<span class="token operator">::</span>cur <span class="token punctuation">)</span><span class="token punctuation">;</span>  
+
+<span class="token comment">// position n bytes back from end of fileObject</span>
+ileObject<span class="token punctuation">.</span><span class="token function">seekg</span><span class="token punctuation">(</span> n<span class="token punctuation">,</span> ios<span class="token operator">::</span>end <span class="token punctuation">)</span><span class="token punctuation">;</span>  
+
+<span class="token comment">// position at end of fileObject</span>
+fileObject<span class="token punctuation">.</span><span class="token function">seekg</span><span class="token punctuation">(</span> <span class="token number">0</span><span class="token punctuation">,</span> ios<span class="token operator">::</span>end <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+</div>
+</body>
+
+</html>
