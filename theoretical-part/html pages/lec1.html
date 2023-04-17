@@ -8,8 +8,9 @@
   <style>
 		/* Set the default font family and size */
 		body {
-		font-family: Arial, sans-serif;
-		font-size: 18px;
+			zoom: 250%;
+			font-family: Arial, sans-serif;
+			font-size: 18px;
 		}
 
 		/* Style the page title */
@@ -152,113 +153,6 @@ The processor registers are measured by the <strong>amount of data</strong> the 
 <p>Offline storage devices are remotely located and accessed as <strong>per need</strong> only.</p>
 <p>This storage device also needs <strong>human intervention</strong> to be read properly by the main computer system.<br>
 <br> <br> <br></p>
-<h2 id="c--files-and-streams">c++  Files and Streams</h2>
-<p><strong>ofstream</strong> :  This data type represents the <strong>output</strong> file stream and is used to create files and to write information to files.</p>
-<p><strong>ifstream</strong> : This data type represents the <strong>input</strong> file stream and is used to read information from files.</p>
-<p><strong>fstream</strong> : This data type represents the <strong>file stream generally</strong>, and has the capabilities of both ofstream and ifstream.</p>
-<p><strong>Note</strong> :  To perform file processing in C++, header files  and  must be included in your C++ source file.</p>
-<hr>
-<h3 id="opening-a-file-in-c">opening a file in c++</h3>
-<pre><code>                     void open(const char *filename, ios::openmode mode);
-</code></pre>
-<p><strong>const char *filename</strong> : specifies the name and location of the file to be opened.</p>
-<p><strong>ios::openmode mode</strong>: defines the mode in which the file should be opened.<br>
-<br></p>
-<table>  
-		<tbody><tr>  
-		<th>Mode</th>  
-		<th>Description</th>  
-		</tr>  
-		<tr>  
-		<td>ios::app</td>  
-		<td>Append mode. All output to that file to be appended to the end.</td>  
-		</tr>  
-		<tr>  
-		<td>ios::ate</td>  
-		<td>Open a file for output and move the read/write control to the end of the file.</td>  
-		</tr>  
-		<tr>  
-		<td>ios::in</td>  
-		<td>Open a file for reading. </td>  
-		</tr> 
-		<tr>  
-		<td>ios::out</td>  
-		<td>Open a file for writing.</td>  
-		</tr> 
-		<tr>  
-		<td>ios::trunc</td>  
-		<td>If the file already exists, its contents will be truncated before opening the file.</td>  
-		</tr> 
-</tbody></table>
-<p><strong>Note</strong> :  You can combine two or more of these values by OR operator.</p>
-<pre><code>outfile.open("file.dat", ios::out | ios::in );
-</code></pre>
-<br>
-<h3 id="closing-a-file-in-c">closing a file in c++</h3>
-<pre><code>fileName.close()
-</code></pre>
-<p>When a C++ program terminates it automatically closes flushes all the streams,. But it is always a good practice that a programmer should close all the opened files before program termination.<br>
-<br></p>
-<hr>
-<h3 id="reading-and-writing-in-c">Reading and Writing in c++</h3>
-<p>the following c++ program opens a file in a reading and writing mode.</p>
-<pre class=" language-cpp"><code class="prism  language-cpp">  
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;fstream&gt;</span>  </span>
-<span class="token macro property">#<span class="token directive keyword">include</span>  </span>
-<span class="token operator">&lt;</span>iostream<span class="token operator">&gt;</span>  
-
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>  
-
-<span class="token keyword">int</span> <span class="token function">main</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  
-	<span class="token keyword">char</span> name<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  
-	<span class="token keyword">int</span> age<span class="token punctuation">;</span>  
-	
-	<span class="token comment">// open a file in write mode.  </span>
-	ofstream outfile<span class="token punctuation">;</span>  
-	outfile<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"afile.txt"</span><span class="token punctuation">,</span> ios<span class="token operator">::</span>app<span class="token punctuation">)</span><span class="token punctuation">;</span>  
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Writing to the file"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	cout<span class="token operator">&lt;&lt;</span><span class="token string">"Enter your name: "</span><span class="token punctuation">;</span>
-	cin<span class="token operator">-</span><span class="token function">getline</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
-	
-	<span class="token comment">// write name into the file.</span>
-	outfile <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> name <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>  
-	
-	cout<span class="token operator">&lt;&lt;</span><span class="token string">"Enter your age: "</span><span class="token punctuation">;</span>
-	cin <span class="token operator">&gt;&gt;</span> age<span class="token punctuation">;</span> 
-	 
-	<span class="token comment">// again write age into the file.</span>
-	outfile <span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span> age <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>  
-	
-	<span class="token comment">// close the opened file.</span>
-	outfile<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	
-	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>Both <strong>istream</strong> and <strong>ostream</strong> provide member functions for repositioning the file-position pointer. These member functions are <strong>seekg</strong> for istream and <strong>seekp</strong> for ostream.</p>
-<ul>
-<li>The first argument to seekg and seekp normally is a long integer.</li>
-<li>The second argument can be specified to indicate the seek direction.</li>
-</ul>
-<p>The seek direction can be:</p>
-<ul>
-<li><strong>ios::beg</strong> (the default) for positioning relative to the beginning of a stream.</li>
-<li><strong>ios::cur</strong> for positioning relative to the current position in a stream.</li>
-<li><strong>ios::end</strong> for positioning relative to the end of a stream.</li>
-</ul>
-<p>Some examples of positioning the “get” file-position pointer are:</p>
-<pre class=" language-cpp"><code class="prism  language-cpp"><span class="token comment">// position to the n_th byte of fileObject (assumes ios::beg)</span>
-fileObject<span class="token punctuation">.</span><span class="token function">seekg</span><span class="token punctuation">(</span> n <span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// position n bytes forward in fileObject  </span>
-fileObject<span class="token punctuation">.</span><span class="token function">seekg</span><span class="token punctuation">(</span> n<span class="token punctuation">,</span> ios<span class="token operator">::</span>cur <span class="token punctuation">)</span><span class="token punctuation">;</span>  
-
-<span class="token comment">// position n bytes back from end of fileObject</span>
-ileObject<span class="token punctuation">.</span><span class="token function">seekg</span><span class="token punctuation">(</span> n<span class="token punctuation">,</span> ios<span class="token operator">::</span>end <span class="token punctuation">)</span><span class="token punctuation">;</span>  
-
-<span class="token comment">// position at end of fileObject</span>
-fileObject<span class="token punctuation">.</span><span class="token function">seekg</span><span class="token punctuation">(</span> <span class="token number">0</span><span class="token punctuation">,</span> ios<span class="token operator">::</span>end <span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
 </div>
 </body>
 
