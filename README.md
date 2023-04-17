@@ -11,9 +11,9 @@
 - `STEP 5` Closing a file.
 
 
-
+<hr>
 
 ## Summary the File-structure in the page
 
-- [Summary](https://gergeshany.github.io/File-Structure-Summary/Home_page)
-- [Summary](https://omaralaraby.github.io/File-Structure-Summary/Home_page)
+- [Summary link](https://gergeshany.github.io/File-Structure-Summary/Home_page)
+- [Summary link](https://omaralaraby.github.io/File-Structure-Summary/Home_page)
