@@ -1,0 +1,134 @@
+<h1 id="basic-file-processing-operations">Basic File Processing Operations</h1>
+<ul>
+<li><h4 id="-physical-file-a-collection-of-bytes-stored-on-a-disk-or-tape-"><code>Physical File:</code> A collection of bytes stored on a disk or tape.</h4>
+</li>
+<li><h4 id="-logical-file-a-channel-like-a-telephone-line-that-hides-the-details-of-the-file-s-location-and-physical-format-to-the-program-"><code>Logical File:</code> A channel (like a telephone line) that hides the details of the file’s location and physical format to the program.</h4>
+</li>
+<li><h4 id="-iostream-standard-library-which-provides-cin-and-cout-methods-for-reading-from-standard-input-and-writing-to-standard-output-respectively-"><code>iostream</code> standard library , which provides <code>cin and cout</code> methods for reading from standard <code>input and writing</code> to standard output respectively.</h4>
+</li>
+<li><h4 id="-fstream-is-used-to-read-and-write-from-a-file-you-require-another-standard-c-library-defines-three-new-data-types-"><code>Fstream</code> is used to <code>read and write</code> from a file you require another standard C++ library, defines <code>three new data types</code>.</h4>
+</li>
+<li><h4 id="fstreams-defines-three-new-data-types-">fstreams defines three new <code>data types</code> :</h4>
+</li>
+</ul>
+<hr>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Data Type</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">ofstream</td>
+<td style="text-align:center">represents the output file stream. used to create files and to write information to files.</td>
+</tr>
+<tr>
+<td style="text-align:center">ifstream</td>
+<td style="text-align:center">represents the input file stream. used to read information from files.</td>
+</tr>
+<tr>
+<td style="text-align:center">fstream</td>
+<td style="text-align:center">represents the file stream generally. has the capabilities of both ofstream and ifstream (Can create files, write information to files, and read information from files)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<ul>
+<li><h4 id="to-perform-file-processing-in-c-header-files-iostream-and-fsteam-must-be-included-in-your-c-source-file">To perform file processing in C++, <code>header files &lt;iostream&gt; and &lt;fsteam&gt;</code> must be included in your C++ source file</h4>
+</li>
+<li><h4 id="a-file-must-be-opened-before-you-can-read-from-it-or-write-to-it">A file must be opened before you can read from it or write to it</h4>
+</li>
+<li><h4 id="standard-syntax-for-open-function-is">standard syntax for open () function is</h4>
+</li>
+</ul>
+<pre><code class="lang-bash">void open (<span class="hljs-keyword">const</span> char *filename, ios::openmode mode);
+
+<span class="hljs-keyword">const</span> char * filename specifies the <span class="hljs-keyword">name</span> <span class="hljs-keyword">and</span> location <span class="hljs-keyword">of</span> the <span class="hljs-keyword">file</span> <span class="hljs-keyword">to</span> be opened
+
+ios::openmode mode defines the mode <span class="hljs-keyword">in</span> which the <span class="hljs-keyword">file</span> should be opened
+</code></pre>
+<hr>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Data Type</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">ios::app</td>
+<td style="text-align:center"><code>Append</code> mode. All output to that file to be appended to the end.</td>
+</tr>
+<tr>
+<td style="text-align:center">ios::ate</td>
+<td style="text-align:center"><code>Open a file</code> for output and move the read/write control to the end of the file</td>
+</tr>
+<tr>
+<td style="text-align:center">ios::in</td>
+<td style="text-align:center">Open a file for <code>reading</code></td>
+</tr>
+<tr>
+<td style="text-align:center">ios::out</td>
+<td style="text-align:center">Open a file for <code>writing</code></td>
+</tr>
+<tr>
+<td style="text-align:center">ios::trunc</td>
+<td style="text-align:center">If the file already exists, its contents will be truncated before opening the file.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<ul>
+<li><h4 id="if-you-want-to-open-a-file-for-reading-and-writing-purposes-the-following-will-be-the-syntax">If you want to open a file for <code>reading</code> and <code>writing</code> purposes, the following will be the syntax</h4>
+</li>
+</ul>
+<pre><code class="lang-bash">fstream <span class="hljs-keyword">outfile</span>; 
+<span class="hljs-keyword">outfile</span>.<span class="hljs-keyword">open</span>(<span class="hljs-string">"file.dat"</span>, ios::<span class="hljs-keyword">out</span> | ios::<span class="hljs-keyword">in</span>);
+</code></pre>
+<ul>
+<li><h4 id="when-a-c-program-terminates-it-automatically-closes-flushes-all-the-streams-releases-all-the-allocated-memory-and-closes-all-the-opened-files-">When a C++ program terminates it <code>automatically closes</code>, flushes all the streams, releases all the allocated memory and closes all the opened files.</h4>
+</li>
+<li><h4 id="the-following-is-the-standard-syntax-for-close-function-which-is-a-member-of-fstream-ifstream-and-ofstream-objects-void-close-">The following is the <code>standard syntax for close () function</code>, which is a member of fstream, ifstream, and ofstream objects. <code>void close ();</code></h4>
+</li>
+<li><h4 id="you-can-use-an-ofstream-or-fstream-object-instead-of-the-cout-object">You can use an <code>ofstream or fstream</code> object instead of the <code>cout</code> object</h4>
+</li>
+<li><h4 id="you-can-use-an-ifstream-or-fstream-object-instead-of-the-cin-object-">You can use an <code>ifstream or fstream</code> object instead of the <code>cin</code> object.</h4>
+</li>
+<li><h4 id="both-istream-and-ostream-provide-member-functions-for-repositioning-the-file-position-pointer-are-seekg-seek-get-for-istream-and-seekp-seek-put-for-ostream-">Both istream and ostream provide member functions for repositioning the file-position pointer, are <code>seekg (&quot;seek get&quot;) for istream</code> and <code>seekp (&quot;seek put&quot;) for ostream.</code></h4>
+</li>
+<li><h4 id="the-first-argument-to-seekg-and-seekp-normally-is-a-long-integer-">The first argument to <code>seekg and seekp</code> normally is a <code>long integer</code></h4>
+</li>
+<li><h4 id="a-second-argument-can-be-specified-to-indicate-the-seek-direction-">A second argument can be <code>specified to indicate the seek direction</code>.</h4>
+</li>
+<li><h4 id="the-seek-direction-can-be-">The seek direction can be:</h4>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Data Type</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">ios::beg</td>
+<td style="text-align:center">for positioning relative <code>to the beginning</code> of a stream.</td>
+</tr>
+<tr>
+<td style="text-align:center">ios::cur</td>
+<td style="text-align:center">for positioning relative <code>to the current position</code> in a stream</td>
+</tr>
+<tr>
+<td style="text-align:center">ios::end</td>
+<td style="text-align:center">for positioning relative to the <code>end</code> of a stream</td>
+</tr>
+</tbody>
+</table>
