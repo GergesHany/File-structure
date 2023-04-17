@@ -56,9 +56,39 @@
 
 <hr>
 
-- #### 
+- #### When we add a record, both the `data file and the index` should be `updated`
+- #### `In the data file`, the record can be `added anywhere` However, the `byte-offset` of the new record should be `saved`
+- #### Since the u, the location of the new record does matter
+   - we have to `shift all the records` that belong after the one we are inserting to open up space for the new record. However, `this operation is not too costly` as it is performed in memory
 
+- #### `The index record` corresponding to `the data record` being deleted must also be deleted.
+- #### `If the update changes the value of the key field`, then both the index and data file may need to be reordered.
+- #### `If the update does not affect the key field`, then the index does not need reordering, but the data file may.
+   - If the updated record is smaller than the original one, it can be re-written at the same location.
+   - If it is larger, then a new spot has to be found for it. Again, the delete/insert solution can be 21 used
 
+<hr>
+
+- #### `If Indexes are too large to hold in memory`, then 
+   - `Binary searching requires several seeks` rather than being performed at memory speed.
+   - `Index rearrangement requires shifting or sorting records` on secondary storage ==> Extremely time consuming.
+   - `Solutions:` You should 
+      - Use a `hashed` organization
+      - Use a `tree-structured` index (e.g., a B-Tree)
+
+- #### Example
+   - Given the following data file Employee (NAME, SSN, Address, JOB, ………………). Suppose that: `record size = 150 bytes`, `Block size =  512 bytes`, `Number of records in the file = 30000 Find number of file blocks`?
+      - Solu:
+        - Blocking factor = number of records per block = Block size / record size = 512 / 150 = 3 records
+        - Number of file blocks = number of records in the file / Blocking factor = 30000 / 3 = 10000
+
+  - For an index on the SSN field. Assume the `SSN field size is 9 bytes`, and the record `pointer size is 7 bytes`
+    - Solu:
+      -  Index entry size = 9 + 7 = 16 bytes
+      -  Blocking factor = 512 / 16 = 32 records
+      -  Number of file blocks = 30000 / 32 = 937 blocks
+     
+     
 
 
 
