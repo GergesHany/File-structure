@@ -89,6 +89,12 @@
       -  Number of file blocks = 30000 / 32 = 937 blocks
      
      
+| Primary Index | Clustering Index | Secondary Index |
+| :---: | :---: |  :---:   | 
+| Ordered ﬁle | Ordered ﬁle | Ordered ﬁle a secondary means of accessing a ﬁle. |
+| Data ﬁle is ordered on a key ﬁeld (distinct value for each record) | Data ﬁle is ordered on a non-key ﬁeld (no distinct value for each record) | Data ﬁle is ordered maybe on (1 - candidate key has a unique value), (2 - a non-key with duplicate values) |
+| One index entry for each disk block. key ﬁeld value is the ﬁrst record in the block, which is called the block anchor. | One index entry for each distinct value of the ﬁeld. The index entry points to the ﬁrst data block that contains records with that ﬁeld value.  | The index is an ordered ﬁle with two ﬁelds: (1 - ﬁeld value.), (2 - it is either a block pointer or a record pointer.) |
+| Non dense (sparse) index | Non dense (sparse) index	| If key -> dense --- If non key -> dense or sparse index |
 
 
 
