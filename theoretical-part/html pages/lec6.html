@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="organizing-files-for-performance">Organizing Files for Performance</h2>
+<hr>
+<ul>
+<li>
+<h2 id="overview">Overview</h2>
+</li>
+<li>
+<p>In this lecture, we continue to focus on file organization, but with a different motivation.</p>
+</li>
+<li>
+<p>This time we look at ways to organize or re-organize files in order to improve performance.</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<h3 id="ways-used-to-re-organize-files-in-order-to-improve-performance">Ways used to re-organize files in order to improve performance:</h3>
+<ul>
+<li><code>Data Compression:</code> how to make files smaller</li>
+<li><code>Reclaiming space</code> in files that have undergone deletions and updates</li>
+<li><code>Sorting Files</code> in order to support binary searching ==&gt; Internal Sorting A better Sorting Method: KeySorting</li>
+</ul>
+</li>
+<li>
+<h4 id="outlines">outlines</h4>
+<ul>
+<li>Data Compression:</li>
+<li>Run-length encoding:</li>
+<li>Lempel-Ziv (compress and uncompress)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<h3 id="data-compression--an-overview">Data Compression : An Overview</h3>
+<ul>
+<li>Question: Why do we want to make files smaller?
+<ul>
+<li>Answer:
+<ul>
+<li>To use less storage, i.e., saving costs</li>
+<li>To transmit these files faster, decreasing access time or using the same access time, but with a lower and cheaper bandwidth</li>
+<li>To process the file sequentially faster.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="data-compression-using-a-different-notation-redundancy-compression">Data Compression: Using a Different Notation (Redundancy Compression)</h3>
+<ul>
+<li>
+<p>Mary Ames</p>
+</li>
+<li>
+<p>Alan Mason</p>
+</li>
+<li>
+<p>123 Maple</p>
+</li>
+<li>
+<p>90 Eastgate</p>
+</li>
+<li>
+<p>Stillwater, OK 74075</p>
+</li>
+<li>
+<p>Ada, OK 74820</p>
+</li>
+<li>
+<p>Consider this file containing several fixed-length fields, including LastName, State, and Zipcode.</p>
+</li>
+<li>
+<p>The fixed-length fields structure are good candidates for compression.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<h4 id="for-example-when-referring-to-the-state-field-we-used-2-ascii-bytes16-bits.-was-that-really-necessary">For example, when referring to the state field, we used 2 ASCII bytes=16 bits. Was that really necessary?</h4>
+<ul>
+<li>Answer: Since there are only 50 states, we could encode them all with only 6 bits, thus saving 1 byte per state field.</li>
+</ul>
+</li>
+<li>
+<h4 id="disadvantages">Disadvantages:</h4>
+<ul>
+<li>Not Human-Readable</li>
+<li>Cost of Encoding/Decoding Time</li>
+<li>Increased Software Complexity (Encoding/Decoding Module)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<h4 id="run-length-encoding">Run-length encoding:</h4>
+<ul>
+<li>It works as follows:
+<ul>
+<li>Indicate a special run-length code indicator</li>
+<li>The pixel value that is repeated</li>
+<li>The number of times that the value is repeated ( up to 256 times)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><img src="https://user-images.githubusercontent.com/105644935/232526434-93414517-030b-4dae-9372-69206b348018.png" alt="Screenshot from 2023-04-17 17-03-15"></p>
+<hr>
+<ul>
+<li>
+<h4 id="data-compression-assigning-variable-length-code">Data Compression: Assigning Variable-Length Code</h4>
+<ul>
+<li>Principle:
+<ul>
+<li>Assign short codes to the most frequent occurring values and long ones to the least frequent ones.</li>
+</ul>
+</li>
+<li>The code-size cannot be fully optimized as one wants codes to occur in succession, without delimiters between them, and still be recognized.</li>
+<li>This is the principle used in the Huffman Coding.</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/105644935/232527168-56f3df8c-a03c-4249-b6e9-bd7ab65d36d4.png" alt="Screenshot from 2023-04-17 17-05-50"></p>
+<hr>
+<p><img src="https://user-images.githubusercontent.com/105644935/232527277-366d0e34-be98-44e6-ad32-45d88a4853e5.png" alt="Screenshot from 2023-04-17 17-06-23"></p>
+<hr>
+<ul>
+<li>
+<h2 id="data-compression-assigning-variable-length-code-huffman-coding">Data Compression: Assigning Variable-Length Code (Huffman Coding)</h2>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/105644935/232527502-2cc1172f-49cc-46b2-bc0a-f2c26957727d.png" alt="Screenshot from 2023-04-17 17-07-09"></p>
+<hr>
+<p><img src="https://user-images.githubusercontent.com/105644935/232527833-9363feec-1aec-4c2f-9f05-dffa5289caee.png" alt="Screenshot from 2023-04-17 17-07-48"></p>
+<hr>
+<p><img src="https://user-images.githubusercontent.com/105644935/232528030-61e13e2a-344a-4df3-a0c8-a304980f8c45.png" alt="Screenshot from 2023-04-17 17-08-28"></p>
+<ul>
+<li>
+<h2 id="data-compression-irreversible-compression-techniques">Data Compression: Irreversible Compression Techniques</h2>
+</li>
+<li>
+<h4 id="irreversible-compression-is-based-on-the-assumption-that-some-information-can-be-sacrificed."><code>Irreversible Compression</code> is based on the assumption that some information can be sacrificed.</h4>
+</li>
+<li>
+<h4 id="irreversible-compression-is-also-called-entropy-reduction."><code>Irreversible compression</code> is also called Entropy Reduction.</h4>
+</li>
+<li>
+<h4 id="example-shrinking-a-raster-image-from-400-by-400-pixels-to-100-by-100-pixels.-the-new-image-contains-1-pixel-for-every-16-pixels-in-the-original-image"><code>Example:</code> Shrinking a raster image from 400-by-400 pixels to 100-by-100 pixels. The new image contains 1 pixel for every 16 pixels in the original image</h4>
+</li>
+<li>
+<h4 id="there-is-usually-no-way-to-determine-what-the-original-pixels-were-from-the-one-new-pixel.">There is usually no way to determine what the original pixels were from the one new pixel.</h4>
+</li>
+<li>
+<h4 id="in-data-files-irreversible-compression-is-seldom-used.-however-it-is-used-in-image-and-speech-processing.">In data files, irreversible compression is seldom used. However, it is used in image and speech processing.</h4>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<h2 id="data-compression-lempel-ziv-compress-and-uncompress">Data Compression: <code>Lempel-Ziv (compress and uncompress)</code></h2>
+</li>
+<li>
+<h4 id="principle-compression-of-an-arbitrary-sequence-of-bits-can-be-achieved-by-always-coding-a-series-of-0’s-and-1’s-as-some-previous-such-string-the-prefix-string-plus-one-new-bit.-then-the-new-string-formed-by-adding-the-new-bit-to-the-previously-used-prefix-string-becomes-a-potential-prefix-string-for-future-strings."><code>Principle:</code> Compression of an arbitrary sequence of bits can be achieved by always coding a series of 0’s and 1’s as some previous such string (the prefix string) plus one new bit. Then the new string formed by adding the new bit to the previously used prefix string becomes a potential prefix string for future strings.</h4>
+</li>
+<li>
+<h4 id="example-encode-101011011010101011"><code>Example:</code> Encode 101011011010101011</h4>
+</li>
+<li>
+<h4 id="answer-00010000001000110101011110101101"><code>Answer:</code> 00010000001000110101011110101101</h4>
+</li>
+<li>
+<h4 id="if-the-initial-string-is-short-the-encoding-may-be-longer-as-above-however-for-long-documents-this-encoding-is-close-to-optimal.">If the initial string is short, the encoding may be longer as above, however, for long documents this encoding is close to optimal.</h4>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<h2 id="constructing-lempel-ziv-codes">Constructing Lempel-Ziv Codes</h2>
+</li>
+<li>
+<h3 id="step-1-parse-the-input-string-into-comma-separated-phrases-that-represent-strings-that-can-be-represented-by-a-previous-string-as-a-prefix--1-bit"><code>Step 1:</code> Parse the input string into comma separated phrases that represent strings that can be represented by a previous string as a prefix + 1 bit</h3>
+</li>
+<li>
+<h3 id="step-2-encode-the-different-phrases-except-the-last-one-using-a-minimal-binary-representation.-start-with-the-null-phrase."><code>Step 2:</code> Encode the different phrases (except the last one) using a minimal binary representation. Start with the null phrase.</h3>
+</li>
+<li>
+<h3 id="step-3-write-the-string-listing-1-the-code-for-the-prefix-phrase--the-new-bit-needed-to-create-the-new-phrase."><code>Step 3:</code> Write the string, listing 1) the code for the prefix phrase + the new bit needed to create the new phrase.</h3>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<h2 id="constructing-lempel-ziv-codes--example">Constructing Lempel-Ziv Codes : <code>Example</code></h2>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/105644935/232532778-fce635e9-e2a5-42ee-b408-745bb5cda136.png" alt="Screenshot from 2023-04-17 17-18-35"></p>
+<hr>
+<ul>
+<li>
+<h2 id="constructing-lempel-ziv-codes--example-cont">Constructing Lempel-Ziv Codes : <code>Example (cont)</code></h2>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/105644935/232532949-f3cfcd68-0a86-4e38-84f0-9c7edac623bb.png" alt="Screenshot from 2023-04-17 17-19-36"></p>
+</div>
+</body>
+
+</html>
