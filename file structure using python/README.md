@@ -13,7 +13,8 @@
 
 <hr>
 
-﻿# python tutorial
+
+# python tutorial
 
 **Note :** if you feel you need to practice the basics of python , please see [this](https://www.youtube.com/watch?v=h3VCQjyaLws&list=PLuXY3ddo_8nzrO74UeZQVZOb5-wIS6krJ&ab_channel=Codezilla)
 
@@ -53,8 +54,7 @@ you need to import `json` to convert the dict to json format:
 ```py
 import json
 
-details = {'Name': "7amoshka",
-		'Age' :20}
+details = {'Name': "7amoshka", 'Age' :20}
 
 with open('convert.txt', 'w') as convert_file:
 	convert_file.write(json.dumps(details))
