@@ -13,7 +13,7 @@
 
 <hr>
 
-## Summary the File-structure
+##  File-structure Summary 
 
 - [Summary link](https://gergeshany.github.io/File-Structure-Summary/Home_page)
 - [Summary link](https://omaralaraby.github.io/File-Structure-Summary/Home_page)
