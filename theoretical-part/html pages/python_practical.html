@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python tutorial</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+      }
+
+      h1, h2, h3 {
+        color: #006699;
+        font-weight: bold;
+      }
+
+
+
+      ul, ol {
+        color: black;
+        list-style-type: disc;
+        margin: 0 0 16px 0;
+        padding: 0 0 0 32px;
+      }
+
+      li {
+        color: black;
+        margin-bottom: 8px;
+      }
+
+
+      /* Style the paragraphs */
+      p {
+      margin: 1em 0;
+      line-height: 1.5;
+      }
+
+      /* Style the block code */
+      pre {
+      padding: 1em;
+      background-color: #f0f8ff; /* baby blue */
+      color: #333;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.5;
+      border-radius: 5px;
+      }
+
+      /* Style the code syntax highlighting */
+      pre code {
+      font-family: Consolas, monospace;
+      font-size: 14px;
+      }
+
+      a:hover {
+      text-decoration: underline;
+      }
+
+      /* Add a background color to the page */
+      body {
+      background-color: #fff;
+      }
+
+      /* Style the header */
+      header {
+      background-color: #006699; /* darker blue */
+      color: #fff; /* white */
+      padding: 20px;
+      }
+
+      /* Style the names */
+      header h1 {
+      font-size: 36px;
+      margin: 0;
+      color: #fff; /* white */
+      }
+
+      header h2 {
+      font-size: 24px;
+      margin: 0;
+      color: #f0f8ff; /* baby blue */
+      }
+
+      header h3 {
+      font-size: 24px;
+      margin: 0;
+      color: #f0f8ff; /* baby blue */
+      }
+
+      header h4 {
+      font-size: 24px;
+      margin: 0;
+      color: #f0f8ff; /* baby blue */
+      }
+
+      /* Align the names */
+      .names {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      }
+
+      .names h1,
+      .names h2 {
+      margin: 0 10px;
+      }
+
+      /* Add a hover effect to the names */
+      .names h1:hover,
+      .names h2:hover {
+      cursor: pointer;
+      text-decoration: underline;
+      }
+
+
+  </style>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="python-tutorial">python tutorial</h1>
+<p><strong>Note :</strong> if you feel you need to practice the basics of python , please see <a href="https://www.youtube.com/watch?v=h3VCQjyaLws&amp;list=PLuXY3ddo_8nzrO74UeZQVZOb5-wIS6krJ&amp;ab_channel=Codezilla">this</a></p>
+<p>Reading and writing data to files using Python is pretty straightforward. To do this, you must first open files in the appropriate mode. Here’s an example of how to use Python’s “with open(…) as …” pattern to open a text file and read its contents:</p>
+<pre class=" language-py"><code class="prism  language-py"><span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'data.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    data <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><code>open()</code>  takes a filename and a mode as its arguments.  <code>r</code>  opens the file in read only mode. To write data to a file, pass in  <code>w</code>  as an argument instead:</p>
+<pre class=" language-py"><code class="prism  language-py"><span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'data.txt'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    data <span class="token operator">=</span> <span class="token string">'some data to be written to the file'</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Note :</strong> <code>with</code> is a built-in function that open the file and close it when you are done. So, you don’t need to close your file.</p>
+<h4 id="different-modes-to-open-a-file-in-python">Different Modes to Open a File in Python</h4>
+
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>‘r’</td>
+<td>Read mode (default)</td>
+</tr>
+<tr>
+<td>‘w’</td>
+<td>Write mode (truncate file to zero length or create new file)</td>
+</tr>
+<tr>
+<td>‘x’</td>
+<td>Exclusive creation mode (fail if file already exists)</td>
+</tr>
+<tr>
+<td>‘a’</td>
+<td>Append mode (write to end of file or create new file)</td>
+</tr>
+<tr>
+<td>‘b’</td>
+<td>Binary mode (use with ‘r’, ‘w’, or ‘a’ to read or write binary data)</td>
+</tr>
+<tr>
+<td>‘t’</td>
+<td>Text mode (default; use with ‘r’, ‘w’, or ‘a’ to read or write text data)</td>
+</tr>
+<tr>
+<td>‘+’</td>
+<td>Open for updating (reading and writing)</td>
+</tr>
+</tbody>
+</table><hr>
+<h4 id="writing-a-dictionary-in-the-file">writing a dictionary in the file</h4>
+<p>you need to import <code>json</code> to convert the dict to json format:</p>
+<pre class=" language-py"><code class="prism  language-py"><span class="token keyword">import</span> json
+
+details <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'Name'</span><span class="token punctuation">:</span> <span class="token string">"7amoshka"</span><span class="token punctuation">,</span>
+		<span class="token string">'Age'</span> <span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">}</span>
+
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'convert.txt'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> convert_file<span class="token punctuation">:</span>
+	convert_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>details<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="reading-dictionary-from-the-file">Reading dictionary from the file</h4>
+<pre class=" language-py"><code class="prism  language-py"><span class="token keyword">import</span> json
+
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'dictionary.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+	data <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	
+<span class="token comment"># reconstructing the data as a dictionary</span>
+js <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>js<span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h4 id="writing-a-list-in-the-file">writing a list in the file</h4>
+<pre class=" language-py"><code class="prism  language-py">names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Jessa'</span><span class="token punctuation">,</span> <span class="token string">'Eric'</span><span class="token punctuation">,</span> <span class="token string">'Bob'</span><span class="token punctuation">]</span>
+
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>r<span class="token string">'E:/demos/files_demos/account/sales.txt'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fp<span class="token punctuation">:</span>
+    <span class="token keyword">for</span> item <span class="token keyword">in</span> names<span class="token punctuation">:</span>
+        <span class="token comment"># write each item on a new line</span>
+        fp<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"%s\n"</span> <span class="token operator">%</span> item<span class="token punctuation">)</span>
+</code></pre>
+<h4 id="reading-a-the-data-as-a-list">Reading a the data as a list</h4>
+<pre class=" language-py"><code class="prism  language-py"><span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"file.txt"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span>
+	data <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># replacing end of line('/n') with ' ' and</span>
+<span class="token comment"># splitting the text it further when '.' is seen.</span>
+data_into_list <span class="token operator">=</span> data<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">,</span> <span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span>
+
+<span class="token comment"># printing the data</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>data_into_list<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="its-a-quick-start-in-readwrite-in-python-files--for-more-please-see-this-docs">it’s a quick start in Read/Write in python files , for more please see this <a href="https://www.geeksforgeeks.org/reading-writing-text-files-python/">document</a></h3>
+</div>
+</body>
+
+</html>
