@@ -20,7 +20,7 @@ void write_student(){
   char ch;
   student s; // the object of the class student
   fstream file; // the file object
-  file.open("Student.txt", ios::app | ios::out); // open the file in append mode and write mode
+  file.open("Test.txt", ios::app | ios::out); // open the file in append mode and write mode
 
   // the loop to write the student in the file
   // the loop will continue until the user enter n or N
@@ -60,7 +60,7 @@ bool search_student(int id){
 
   student s;
   ifstream in;
-  in.open("Student.txt", ios::in);
+  in.open("Test.txt", ios::in);
 
   if (in.is_open()){ // check if the file is opened or not
       // the loop will read the student from the file
@@ -94,7 +94,7 @@ void delete_student(int id){
   student s;
   ifstream in; // the input file object
   ofstream out; // the output file object
-  in.open("Student.txt", ios::in);
+  in.open("Test.txt", ios::in);
   out.open("temp.txt", ios::out | ios::app);
 
   // in the following code we will read the student from the file and write the student in the temp file
@@ -131,8 +131,8 @@ void delete_student(int id){
     cout << "can not open the specified file!..\n";
   }
 
-  remove("Student.txt"); // delete the original file
-  rename("temp.txt", "Student.txt"); // rename the temp file to the original file name
+  remove("Test.txt"); // delete the original file
+  rename("temp.txt", "Test.txt"); // rename the temp file to the original file name
 
 }
 
@@ -141,7 +141,7 @@ void read_student(){
 
   student s;
   ifstream in;
-  in.open("Student.txt", ios::in);
+  in.open("Test.txt", ios::in);
   if (in.is_open()){
 
     in >> s.name >> s.age >> s.id;
@@ -164,7 +164,7 @@ void update_student(int id){
   student s;
   ifstream in;
   ofstream out;
-  in.open("Student.txt", ios::in);
+  in.open("Test.txt", ios::in);
   out.open("temp.txt", ios::out | ios::app);
 
   // in the following code we will read the student from the file and write the student in the temp file
@@ -207,8 +207,8 @@ void update_student(int id){
     cout << "can not open the specified file!..\n";
   }
 
-  remove("Student.txt");
-  rename("temp.txt", "Student.txt");
+  remove("Test.txt");
+  rename("temp.txt", "Test.txt");
 
 }
 
