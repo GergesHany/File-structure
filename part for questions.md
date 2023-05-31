@@ -6,6 +6,7 @@
 - ### number of tracks per disk = number of surfases * number of tracks per surfase
 - ### Tracks capacity = sectors per track * bytes per sector
 
+<br><hr>
 
 ## Mina`s video
 
