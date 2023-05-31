@@ -1,1 +1,7 @@
-
+- ### 2 platter = 1 surfase 
+- ### cylinder = tracks per surfase
+- ### {x} capasity = bytes per {x}
+- ### {x} / {y} = {x} / {z} * {z} / {y}
+- ### number of sectors per cylinder = tracks per surfase * sectors per track
+- ### number of tracks per disk = number of surfases * number of tracks per surfase
+- ### Tracks capacity = sectors per track * bytes per sector
