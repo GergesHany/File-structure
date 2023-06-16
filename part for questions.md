@@ -5,6 +5,8 @@
 - ### number of sectors per cylinder = tracks per surfase * sectors per track
 - ### number of tracks per disk = number of surfases * number of tracks per surfase
 - ### Tracks capacity = sectors per track * bytes per sector
+- ### Number of Cylinders = number of tracks in a surface
+- ### Drive Capacity = number of cylinders * cylinder capacity
 
 <br><hr>
 
